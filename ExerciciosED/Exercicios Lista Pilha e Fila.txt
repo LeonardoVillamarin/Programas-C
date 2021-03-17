@@ -1,0 +1,231 @@
+=============================================================
+Exercicio 1
+
+typedef struct no {
+    TElem elemento;
+    No* prox;
+}No;
+
+typedef struct deque {
+    int tamanho = 0;
+    No *ini;
+    No *fim;
+}Deque;
+
+void insereInicio(Deque *d, TElem elemento){
+	if (d->tamanho == 0) {
+        d->ini = (No*)malloc(sizeof(No));
+        d->ini->elemento = elemento;
+        d->fim = d->ini;
+        d->tamanho++;
+    }
+    else {
+    	Deque *aux = (No*)malloc(sizeof(No));
+    	aux->elemento = elemento;
+        aux->prox = d->ini; 
+        d->ini = aux;
+        d->tamanho++;
+    }
+}
+
+void insereFim(Deque *d, TElem x){
+	if (d->tamanho == 0) {
+        d->ini = (No*)malloc(sizeof(No));
+        d->ini->elemento = elemento;
+        d->fim = d->ini;
+        d->tamanho++;
+    }
+    else {
+        d->fim->prox = (No*)malloc(sizeof(No));
+        d->fim->prox->elemento = elemento;
+        d->fim->prox->prox = NULL;
+        d->fim = d->fim->prox;
+        d->tamanho++;
+    }
+}
+
+
+
+void removeInicio(Deque *d){
+	TElem elemento;
+    No *aux;
+    
+    if (d->tamanho == 0) 
+        return 0;
+    else {
+        aux = d->ini;
+        d->ini = d->ini->prox;
+        free(aux);
+        d->tamanho--;
+    }
+}
+
+void removeFim(Deque *d){
+	TElem elemento;
+	No *aux;
+
+	if (d->tamanho == 0)
+		return 0;
+	else{
+		aux = d->fim;
+		while (d->prox->prox != NULL)
+			d->fim = d->prox;
+		free(aux);
+		d->tamanho--;
+	}
+}
+
+TElem buscaInicio(Deque *q){
+	TElem elemento;
+	if(d->tamanho == 0)
+		return 0
+	elemento = d->ini->elemento;
+	return elemento;
+}
+
+TElem buscaFim(Deque *q){
+	TElem elemento;
+	if(d->tamanho == 0)
+		return 0
+	elemento = d->fim->elemento;
+	return elemento;
+}
+
+=============================================================
+Exercicio 2
+
+void empilha(Fila f, Tipo elemento){
+    f.enfileira(elemento);
+}
+
+Tipo desempilha(Fila f, Fila g){
+    Tipo elemento;
+    if(f.tamanho > 0){
+        while(f.tamanho > 1)
+            g.enfileira(f.desenfileira());
+        elemento = f.desenfileira();
+        return elemento;
+        }
+    else{
+        while(g.tamanho > 1)
+            f.enfileira(g.desenfileira());
+        elemento = g.desenfileira();
+        return elemento;
+    }
+}
+
+
+=============================================================
+Exercicio 3
+
+void enfileira(Pilha p, Tipo elemento){
+    p.empilha(elemento);
+}
+
+Tipo desinfileira(Pilha p, Pilha q){
+    Tipo elemento;
+    if(p.tamanho > 0){
+        while(p.tamanho > 1)
+            q.empilha(p.desempilha());
+        elemento = p.desempilha();
+        return elemento;
+    }
+    else{
+        while(q.tamanho > 1)
+            p.empilha(q.desempilha());
+        elemento = q.desempilha();
+        return elemento;
+    }
+}
+
+
+=============================================================
+Exercicio 4
+
+a)
+
+Pilha invertePilha(Pilha p, Fila f){
+    while(p.tamanho() > 0)
+        f.enfileira(p.desempilha());
+    while(f.tamanho() > 0)
+        p.empilha(f.desenfileira());
+    return p;
+}
+
+-------------------------------------------------
+b)
+
+Pilha invertePilha(Pilha p, Pilha q, Pilha r){
+    while(p.tamanho() > 0)
+        q.empilha(p.desempilha());
+    while(q.tamanho() > 0)
+        r.empilha(q.desempilha());
+    while(r.tamanho() > 0)
+        p.empilha(r.desempilha());
+    return p;
+}
+
+-------------------------------------------------
+c)
+
+Pilha invertePilha(Pilha p, Pilha q){
+    Tipo aux;
+    int j = 1;
+    for (int i = p.tamanho(); i > 0; i--){
+        aux = p.desempilha();
+        while(p.tamanho() > 0){
+            q.empilha(p.desempilha);
+            j++;
+            if(i == j)
+                q.empilha(aux);
+        }
+        j = 1;
+        while(q.tamanho() > 0)
+            p.empilha(q.desempilha);
+    }
+    return p;
+}
+
+
+=============================================================
+Exercício 5
+
+a)
+
+Fila inverteFila(Fila f, Pilha g){
+    while(f.tamanho() > 0)
+        g.empilhar(f.desenfileirar);
+    while(g.tamanho() > 0)
+        f.enfileirar(g.desempilhar);
+    return f;
+}
+
+-------------------------------------------------
+b)
+
+Fila inverteFila(Fila f, Fila g, Fila h){
+    for(int i = f.tamanho(); i > 1; i--){
+        while(f.tamanho() > 1)
+            g.enfileirar(f.desenfileirar());
+        h.enfileirar(f.desenfileirar());
+        while(g.tamanho() > 0)
+            f.enfileirar(g.desenfileirar());
+    }
+    while(h.tamanho() > 0)
+        f.enfileirar(h.desenfileirar());
+    return f;
+}
+
+
+=============================================================
+
+
+
+
+
+
+
+
+
+    
+

@@ -1,0 +1,28 @@
+1.5- Porque cada tipo possui uma quantidade de bytes máxima.
+
+a) %f -> float
+b) %s -> string
+c) %u -> unsigned int
+d) %p -> pointer
+e) %x -> hexadecimal number
+f) %d -> decimal int
+g) %c -> char
+
+
+1.6- 
+1- O scanf não possui & antes do nome da variável.
+2- A função não tem o return no final.
+3- Não tem o include no início do programa.
+
+
+1.7- O printf serve para imprimirmos valores na tela e o scanf para lermos valores.
+
+
+1.8-
+a)Vai repetir 10 vezes imprimindo os valores de i de 0 a 9.
+b)Vai repetir 5 vezes começando do 1 e avançando de 2 em 2 e imprime os valores de i que seriam 1,3,5,7,9.
+c)Vai repetir 10 vezes imprimindo os valores de i de 0 a 9. 
+d)Vai ficar imprimindo e incrementando a variável i infinitamente.
+e)Vai ficar imprimindo 0 infinitamente porque o i nunca vai ser igual ou maior que 10 já que não tem parâmetro para incrementar ou decrementar a variável i.
+f)Vai ficar imprimindo 0 infinitamente já que tem parâmetro para parar o for e também não tem parâmetro para incrementar ou decrementar o i.
+g)Se a variável i for declarada fora do laço, o for vai ficar repetindo infinitamente e imprimindo algum valor, caso não esteja declarado fora do laço, o programa não será compilado pois dará erro por uso de variável que não foi declarada.
